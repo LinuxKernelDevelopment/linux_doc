@@ -1,0 +1,43 @@
+\documentclass[]{article}
+
+%opening
+\title{%
+\vspace{-30mm}\Huge
+\textbf{mkfs.xfs code comment}\vspace{9mm}}
+\author{root}
+\begin{document}
+\maketitle
+\newpage
+\section{Preface}
+This is a code comment documentation on xfsprog-dev commit 3caeb69c19df7e955cd70f85ba361defc249dc11. \linebreak
+If you have some suggestion, please email hmsjwzb@qq.com. Thank you!
+\section{Codecomment}
+\noindent \boldmath{3733-3809:}%
+\parbox[t]{120mm}{\sl Variable declaration and initialization}
+
+\noindent \boldmath{3811-3861:}%
+\parbox[t]{120mm}{\sl Get mkfs configuration from command line or configuration file}
+
+\noindent \boldmath{3863-3907:}
+\parbox[t]{120mm}{\sl do some basic check on user argument}
+
+\noindent \boldmath{3915-3918:}
+\parbox[t]{120mm}{\sl do some calculation on some}
+
+\noindent \boldmath{3925-3926:}
+\parbox[t]{120mm}{\sl start\_superblock\_setup set up some part of super block(xfs\_sb)\newline initialise\_mount init some part of xfs\_mount}\\
+
+\noindent \boldmath{3928-3934:}
+\parbox[t]{120mm}{\sl{\boldmath caculate\_log\_size} set up log location\newline {\boldmath finish\_superblock\_size} set up some members in super block}
+
+\noindent \boldmath{3925-3953:}
+\parbox[t]{120mm}{\sl print out the geometry of the fs.}
+
+\noindent \boldmath{3958:}
+\parbox[t]{120mm}{\sl allocate buffer cache for each device.}
+
+\noindent \boldmath{3965:}
+\parbox[t]{120mm}{\sl zero out the device, It can protect xfs from some obsolete data.}
+
+
+\end{document}
