@@ -5,4 +5,4 @@
 %.dvi: %.tex
 	latex $<
 clean:
-	$(RM) -f *.aux *.log *.pdf
+	$(RM) *.aux *.log *.pdf
