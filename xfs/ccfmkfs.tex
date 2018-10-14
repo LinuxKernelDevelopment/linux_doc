@@ -12,32 +12,27 @@
 This is a code comment documentation on xfsprog-dev commit 3caeb69c19df7e955cd70f85ba361defc249dc11. \linebreak
 If you have some suggestion, please email hmsjwzb@qq.com. Thank you!
 \section{Codecomment}
-\noindent \boldmath{3733-3809:}%
-\parbox[t]{120mm}{\sl Variable declaration and initialization}
+\newcommand{\comment}[2]{\noindent \boldmath{#1:%
+\parbox[t]{120mm}{\sl #2}}}
 
-\noindent \boldmath{3811-3861:}%
-\parbox[t]{120mm}{\sl Get mkfs configuration from command line or configuration file}
+\comment{3733-3809}{Variable declaration and initialization}
 
-\noindent \boldmath{3863-3907:}
-\parbox[t]{120mm}{\sl do some basic check on user argument}
+\comment{3811-3861}{Get mkfs configuration from command line or configuration file}
 
-\noindent \boldmath{3915-3918:}
-\parbox[t]{120mm}{\sl do some calculation on some}
+\comment{3863-3907}{do some basic check on user argument}
 
-\noindent \boldmath{3925-3926:}
-\parbox[t]{120mm}{\sl start\_superblock\_setup set up some part of super block(xfs\_sb)\newline initialise\_mount init some part of xfs\_mount}\\
+\comment{3915-3918}{do some calculation on some}
 
-\noindent \boldmath{3928-3934:}
-\parbox[t]{120mm}{\sl{\boldmath caculate\_log\_size} set up log location\newline {\boldmath finish\_superblock\_size} set up some members in super block}
+\comment{3925-3926}{start\_superblock\_setup set up some part of super block(xfs\_sb)\newline initialise\_mount init some part of xfs\_mount}\\
 
-\noindent \boldmath{3925-3953:}
-\parbox[t]{120mm}{\sl print out the geometry of the fs.}
+\comment{3928-3934}{{\boldmath caculate\_log\_size} set up log location\newline {\boldmath finish\_superblock\_size} set up some members in super block}
 
-\noindent \boldmath{3958:}
-\parbox[t]{120mm}{\sl allocate buffer cache for each device.}
+\comment{3925-3953}{print out the geometry of the fs.}
 
-\noindent \boldmath{3965:}
-\parbox[t]{120mm}{\sl zero out the device, It can protect xfs from some obsolete data.}
+\comment{3958}{allocate buffer cache for each device.}
 
+\comment{3965}{zero out the device, It can protect xfs from some obsolete data.}
+
+\comment{3966}{Compute and fill members in {xfs\_mount\_t}}
 
 \end{document}
