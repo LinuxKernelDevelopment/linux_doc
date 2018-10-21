@@ -35,4 +35,50 @@ If you have some suggestion, please email hmsjwzb@qq.com. Thank you!
 
 \comment{3966}{Compute and fill members in {xfs\_mount\_t}}
 
+\comment{3976-3977}{Init static metadata for every AG}
+
+\comment{3982-3983}{Init the freespace freelists for each AG, the main work is done in xfs\_alloc\_fix\_freelist}
+
+\section{initialise\_ag\_headers}
+
+\comment{3325}{Get ag management data structure for current AG}
+
+\comment{3345}{Get cache buffer for Superblock}
+
+\comment{3348}{Set the cache buffer operation for xfs\_sb\_buf\_ops}
+
+\comment{3349}{Clear cache buffer to zero}
+
+\comment{3350}{trans the xfs\_sb to the superblock disk cache buffer}
+
+\comment{3356-3360}{Get a cache buffer for xfs\_agf\_t which manage the free space of the disk}
+
+\comment{3361-3393}{Init element of the xfs\_agf\_t}
+
+\comment{3396-3401}{Special treatment for log AG}
+
+\comment{3409-3424}{Get cache buffer for AG freelist and init it to 0xff}
+
+\comment{3428-3453}{Get and init cache buffer for agi of the AG which manage the inode of the AG}
+
+\comment{3458-3505}{Get a cache buffer and do some init for BNO btree root block, It manage the free space of the AG by block number}
+
+\comment{3507-3547}{Get a cache buffer and do some init for CNT btree root block, It manage the free space of the AG by extent length}
+
+\comment{3551-3562}{If the filesystem is configured with refcount btree, then init it}
+
+\comment{3567-3574}{Get a cache buffer for inode btree and init it}
+
+\comment{3579-3588}{Get a free inode btree and init it if the filesystem is configured with free inode btree}
+
+\comment{3591-3664}{If the filesystem is configured with RMAP btree, init it}
+
+\section{xfs\_alloc\_fix\_freelist}
+\comment{2237-2246}{If the AG isn't init, then init it}
+
+\comment{2253-2257}{You can read the comment up there.}
+
+\comment{2259}{Calculate the minimum blocks needed by various Btree.}
+
+\comment{2260}{Check if we should go on}
 \end{document}
