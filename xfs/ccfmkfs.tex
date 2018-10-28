@@ -39,6 +39,10 @@ If you have some suggestion, please email hmsjwzb@qq.com. Thank you!
 
 \comment{3982-3983}{Init the freespace freelists for each AG, the main work is done in xfs\_alloc\_fix\_freelist}
 
+\comment{3982-3983}{Initialise the freespace freelist (i.e. AGFLs) in each AG.}
+
+\comment{3988}{The last thing allocate root inode for the filesystem}
+
 \section{initialise\_ag\_headers}
 
 \comment{3325}{Get ag management data structure for current AG}
@@ -81,4 +85,10 @@ If you have some suggestion, please email hmsjwzb@qq.com. Thank you!
 \comment{2259}{Calculate the minimum blocks needed by various Btree.}
 
 \comment{2260}{Check if we should go on}
+
+\comment{2288-2378}{Make the free list shorter if it is too long! Make it longer if it is too short!}
+
+\section{parseproto}
+\comment{343-347}{We passing some arguments into parseproto, i.e. pp is default d--755 0 0 }
+\comment{378-446}{Get some init attribute for root directory for allocation}
 \end{document}
