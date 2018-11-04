@@ -1,4 +1,11 @@
 \documentclass[]{article}
+\usepackage{titlesec}
+
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+\titleformat*{\paragraph}{\large\bfseries}
+\titleformat*{\subparagraph}{\large\bfseries}
 
 %opening
 \title{%
@@ -15,6 +22,9 @@ If you have some suggestion, please email hmsjwzb@qq.com. Thank you!
 \newcommand{\comment}[2]{\noindent \boldmath{#1:%
 \parbox[t]{120mm}{\sl #2}}}
 
+\newcommand{\summarize}[1]{\begin{center}
+		\textbf{#1}
+	\end{center}}
 \comment{3733-3809}{Variable declaration and initialization}
 
 \comment{3811-3861}{Get mkfs configuration from command line or configuration file}
@@ -91,4 +101,57 @@ If you have some suggestion, please email hmsjwzb@qq.com. Thank you!
 \section{parseproto}
 \comment{343-347}{We passing some arguments into parseproto, i.e. pp is default d--755 0 0 }
 \comment{378-446}{Get some init attribute for root directory for allocation}
+\comment{548}{Allocate xfs\_trans for the transaction}
+\comment{549-550}{It allocate the inode for the root directory. The libxfs\_ialloc do the actual work}
+
+\section{libxfs\_ialloc}
+\summarize{SUMMARIZE: Allocate an inode on disk and return a copy of its in-core version.}
+\comment{254-255}{Call the space management code to pick the on-disk inode}
+\comment{1746-1762}{We do just like did in xfs\_ialloc\_ag\_select did}
+\comment{1768-1776}{Read the AGI buffer in. If it contains free inode, just allocate from it.But it is not likely in the first time.}
+\comment{1781}{Allocate new inodes from this allocation group.}
+
+
+\section{xfs\_dialloc}
+\comment{1704-1712}{If the AGI buffer passed is not NULL. We can grap an inode from it.}
+
+\comment{1718}{Select an allocation group for this allocation.}
+
+\comment{1724-1737}{If we hit the top of space allocation for inode, noroom set to 1 and okalloc set to 0}
+
+\subsection{allocate through allocation group}
+\comment{1745-1818}{allocate through allocation groups, xfs\_ialloc\_read\_agi will do the real work}
+\comment{1746-1778}{Do some basic check and init work}
+\comment{1781}{Do the actual allocate work}
+\comment{1782-1791}{Check the allocate result}
+\comment{1792-1806}{If the allocation is success, we return}
+
+\section{xfs\_ialloc\_ag\_select}
+\comment{952}{files, directories, symbolic link will need space}
+\comment{955-956}{It is iterator that iterate all allocation group. In my PC, pagno will go through 0 to 4 and start form 0 again.}
+\comment{974-1041}{The loop will examine the allocation group one by one}
+\subsubsection{loop(974-1041)}
+\comment{975}{Get the xfs\_perpag\_t for this allocation group}
+\comment{975-979}{Is this allocation group ok for inode allocation?}
+\comment{987-990}{Is this space contain free inode? If so, we just return this allocation group}
+\comment{991-996}{If the allocation group describe buf is not in memory, We just read it in.}
+\comment{998-1025}{If the allocation group has enough space for allocation, we return it.}
+\comment{1027-1041}{If not, we start with next allocation group.}
+
+\section{xfs\_ialloc\_ag\_alloc}
+\summarize{SUMMARIZE:Allocate new inodes in the allocation group specified by agbp}
+\comment{621-638}{Do some init operation.}
+\comment{662-665}{Get some basic information from AGI}
+\comment{669-707}{If the AGI is valid, we will go to this branch}
+\comment{710-740}{Set the parameter for this allocation}
+\comment{741-742}{Do this allocation}
+\comment{814-815}{Init the inodes we just allocate}
+\comment{872-884}{Insert the chunk of inodes we just allocate in b+tree}
+\comment{890-896}{update the information in AGI}
+\comment{901-909}{do some log operation and return}
+
+\section{xfs\_ialloc\_inode\_init}
+\comment{283-298}{do some init calculation}
+\comment{319-332}{If we have crc feature, the version is 3 and we create log for it}
+\comment{338-399}{Init the inode we just allocated one by one}
 \end{document}
