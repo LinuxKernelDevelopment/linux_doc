@@ -1,0 +1,27 @@
+\documentclass[a4paper,12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{indentfirst}
+\usepackage{grffile}
+
+\author{wangweizhe \\email: \href{mailto:hmsjwzb@yahoo.com}{hmsjwzb@yahoo.com}}
+\title{XFS overview}
+\date{November 2018}
+\let\cleardoublepage=\clearpage
+\begin{document}
+\maketitle
+\titleformat{\chapter}{\normalfont\bfseries\Huge}{\thechapter.}{10pt}{}
+\tableofcontents
+\frontmatter
+\mainmatter
+\setlength{\parindent}{2em}
+\include{./TeX_files/filesystem}
+\include{./TeX_files/disklayout}
+\include{./TeX_files/chapter02}
+
+\backmatter
+% bibliography, glossary and index would go here.
+
+\end{document}
