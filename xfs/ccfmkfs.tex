@@ -126,6 +126,18 @@ If you have some suggestion, please email hmsjwzb@qq.com. Thank you!
 \comment{1782-1791}{Check the allocate result}
 \comment{1792-1806}{If the allocation is success, we return}
 
+\subsection{xfs\_alloc\_vextent}
+\summarize{SUMMARIZE: Allocate variable-size Extent}
+\comment{2795-2820}{Fix parameter up and do some check}
+\comment{2822-2951}{Set the parameter according the allocate type}
+\comment{2829-2830}{Get the AG number of the allocation group}
+\comment{2831}{Fix the freelist}
+
+\subsection{xfs\_alloc\_fix\_freelist}
+\comment{2237-2246}{If the allocation group need do some init operation, then do it}
+\comment{2253-2256}{If it is metadata preferred ag, then we do it with another ag}
+\comment{2284-2375}{Make the freelist longer if too short, shorter if too longer}
+
 \section{xfs\_ialloc\_ag\_select}
 \comment{952}{files, directories, symbolic link will need space}
 \comment{955-956}{It is iterator that iterate all allocation group. In my PC, pagno will go through 0 to 4 and start form 0 again.}
